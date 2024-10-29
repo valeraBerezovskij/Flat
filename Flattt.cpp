@@ -3,7 +3,7 @@ using namespace std;
 
 class Flat {
 public:
-	Flat(int s) : s(s) {}
+	Flat(int s, int price) : s(s), price(price) {}
 	bool operator ==(const Flat& other) {
 		return s == other.s;
 	}
@@ -18,26 +18,28 @@ public:
 				delete[] ptr;
 			}*/
 			s = other.s;
+			price = other.price;
 		}
 		return *this;
 	}
 	bool operator <(const Flat& other) {
-		return s < other.s;
+		return price < other.price;
 	}
 
 	bool operator >(const Flat& other) {
-		return s > other.s;
+		return price > other.price;
 	}
 
 	bool operator <=(const Flat& other) const {
-		return s <= other.s;
+		return price <= other.price;
 	}
 
 	bool operator >=(const Flat& other) const {
-		return s >= other.s;
+		return price >= other.price;
 	}
 private:
 	int s;
+	int price;
 };
 int main()
 {
